@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import Button from './Button';
+
 interface ModalProps {
 	isOpen: boolean;
 	onClose: () => void;
@@ -10,6 +12,7 @@ interface ModalProps {
 	footer?: React.ReactElement;
 	actionLabel: string;
 	disabled?: boolean;
+
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -73,20 +76,15 @@ const Modal: React.FC<ModalProps> = ({
 
 				{/* Footer */}
 				<div className="p-6 border-t border-gray-700">
-					<button
-						className="
-              w-full py-3 px-4 
-              bg-sky-500 text-white 
-              rounded-md 
-              hover:bg-sky-600 
-              transition
-              disabled:opacity-50
-              disabled:cursor-not-allowed
-            "
-						disabled={disabled}
-						onClick={handleSubmit}>
-						{actionLabel}
-					</button>
+			<Button
+				disabled={disabled}
+				label={actionLabel}
+				onClick={handleSubmit}
+				fullWidth
+				secondary
+				large
+				/>
+			
 					{footer && (
 						<div className="mt-4 text-center text-gray-400">
 							{footer}
