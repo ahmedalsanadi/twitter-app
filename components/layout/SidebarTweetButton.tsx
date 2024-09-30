@@ -1,12 +1,11 @@
-// Import with the correct spelling
 // import { useRouter } from 'next/router';
 import { FaFeather } from 'react-icons/fa';
-import useLoginModal from '@/hooks/useLoginModal'; // Correct spelling
+import useLoginModal from '@/hooks/useLoginModal'; 
 import { useCallback } from 'react';
 
 const SidebarTweetButton = () => {
   // const router = useRouter();
-  const loginModal = useLoginModal(); // Consistent hook name
+  const loginModal = useLoginModal(); 
 
   const onClick = useCallback(() => {
     loginModal.onOpen();
