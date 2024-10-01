@@ -1,11 +1,17 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { FaFeather } from 'react-icons/fa';
+import useLoginModal from '@/hooks/useLoginModal'; 
+import { useCallback } from 'react';
 
 const SidebarTweetButton = () => {
-  const router = useRouter();
-  return (
-    <div onClick={() => router.push('/')}>
+  // const router = useRouter();
+  const loginModal = useLoginModal(); 
+  const onClick = useCallback(() => {
+    loginModal.onOpen();
+  }, [loginModal]);
 
+  return (
+    <div onClick={onClick}>
       <div className="
         mt-6
         lg:hidden
@@ -35,7 +41,6 @@ const SidebarTweetButton = () => {
         transition
         cursor-pointer
         '>
-      
         <p className='
           hidden
           lg:block
@@ -51,4 +56,4 @@ const SidebarTweetButton = () => {
   )
 }
 
-export default SidebarTweetButton
+export default SidebarTweetButton;
