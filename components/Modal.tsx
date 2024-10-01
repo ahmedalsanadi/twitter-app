@@ -12,7 +12,6 @@ interface ModalProps {
 	footer?: React.ReactElement;
 	actionLabel: string;
 	disabled?: boolean;
-
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -76,15 +75,15 @@ const Modal: React.FC<ModalProps> = ({
 
 				{/* Footer */}
 				<div className="p-6 border-t border-gray-700">
-			<Button
-				disabled={disabled}
-				label={actionLabel}
-				onClick={handleSubmit}
-				fullWidth
-				secondary
-				large
-				/>
-			
+					<Button
+						disabled={disabled}
+						label={actionLabel}
+						onClick={handleSubmit}
+						fullWidth
+						secondary
+						large
+					/>
+
 					{footer && (
 						<div className="mt-4 text-center text-gray-400">
 							{footer}
