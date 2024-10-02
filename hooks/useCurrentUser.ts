@@ -11,5 +11,4 @@ const useCurrentUser = () => {
     mutate
   };
 };
-
-export default useCurrentUser
+export default useCurrentUser;

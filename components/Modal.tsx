@@ -45,19 +45,19 @@ const Modal: React.FC<ModalProps> = ({
 	return (
 		<div
 			className="
-      fixed inset-0 z-50 
-      flex items-center justify-center
-      bg-neutral-800 bg-opacity-70
-    ">
+					fixed inset-0 z-50 
+					flex items-center justify-center
+					bg-neutral-800 bg-opacity-70
+  					  ">
 			<div
 				className="
-        relative
-        w-full max-w-md
-        mx-auto
-        rounded-lg
-        bg-black
-        shadow-lg
-      ">
+							relative
+							w-full max-w-md
+							mx-auto
+							rounded-lg
+							bg-black
+							shadow-lg
+						">
 				{/* Header */}
 				<div className="flex items-center justify-between p-6 border-b border-gray-700">
 					<h3 className="text-2xl font-semibold text-white">
