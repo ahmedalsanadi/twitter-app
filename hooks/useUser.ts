@@ -6,7 +6,7 @@ import fetcher from "@/libs/fetcher";
 // First Argument: A key .If userId is not provided, it returns null, which means no fetching will occur.
 // Second Argument: The fetcher function that will be used to fetch the data from the provided URL.
 
-const useUser = ({ userId }: { userId: string }) => {
+const useUser = (userId: string) => {
   const { 
     data, 
     error,

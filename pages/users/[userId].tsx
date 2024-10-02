@@ -11,7 +11,7 @@ const UserView = () => {
     const router = useRouter();
     const { userId } = router.query;
 
-    const { data: fetchedUser, isLoading } = useUser({ userId: userId as string })
+    const { data: fetchedUser, isLoading } = useUser(userId as string);
 
     if (isLoading || !fetchedUser) {
         return (
