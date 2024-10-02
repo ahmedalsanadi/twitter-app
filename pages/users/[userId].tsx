@@ -5,6 +5,7 @@ import useUser from "@/hooks/useUser"
 import Header from "@/components/Header"
 import { ClipLoader } from "react-spinners";
 import UserHero from "@/components/users/UserHero";
+import UserBio from "@/components/users/UserBio";
 
 const UserView = () => {
     const router = useRouter();
@@ -26,6 +27,10 @@ const UserView = () => {
     
      {/* UserHero component */}
       <UserHero userId={userId as string} />
+
+      {/* UserBio component */}
+        <UserBio userId={userId as string} />
+      {/* UserTweets component */}
 
    </>
   )
