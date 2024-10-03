@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import serverAuth from "@/libs/serverAuth";
+// import serverAuth from "@/libs/serverAuth";
 
 import prisma from "@/libs/prismadb";
-import { log } from "console";
+// import { log } from "console";
 
 
 export default async function handler(
@@ -15,7 +15,7 @@ export default async function handler(
   }
 
   // const { currentUser } = await serverAuth(req);
-   console.log(req.body);
+   
   try 
   {
     if (req.method === 'POST') {

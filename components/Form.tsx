@@ -14,7 +14,7 @@ interface FormProps {
   postId?: string;
 }
 
-const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
+const Form: React.FC<FormProps> = ({ placeholder }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const { data: currentUser } = useCurrentUser();

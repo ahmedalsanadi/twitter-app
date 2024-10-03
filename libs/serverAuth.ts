@@ -13,7 +13,6 @@ console.log(`request is: ${req}`);
 
 if(!session?.user?.email){  
     throw new Error('Not signed in');
-  
 }
 
 const currentUser = await prisma.user.findUnique({
