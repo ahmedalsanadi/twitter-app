@@ -1,13 +1,20 @@
 import useSWR from "swr";
 import fetcher from "@/libs/fetcher";
 
+interface User {
+  id: string;
+  name: string;
+  username: string;
+  profileImage?: string; // Optional property
+}
+
 const useUsers = () => {
   const { 
     data, 
     error,
     isLoading,
     mutate
-    } = useSWR("/api/users", fetcher);
+  } = useSWR<User[]>("/api/users", fetcher); // Specify that data is an array of User objects
 
   return {
     data,
