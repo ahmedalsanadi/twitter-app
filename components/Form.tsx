@@ -23,9 +23,20 @@ const Form: React.FC<FormProps> = ({ placeholder }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = useCallback(async () => {
+    if (!currentUser?.id) {
+      toast.error("You must be logged in to tweet.");
+      return;
+    }
+  
     try {
       setIsLoading(true);
-      await axios.post('/api/posts', { body });
+  
+      // Send the post body and userId to the backend
+      await axios.post('/api/posts', {
+        body,
+        userId: currentUser.id, // Send userId here
+      });
+  
       toast.success("Tweet created");
       setBody("");
       mutatePosts();
@@ -34,7 +45,8 @@ const Form: React.FC<FormProps> = ({ placeholder }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [body, mutatePosts]);
+  }, [body, currentUser?.id, mutatePosts]);
+  
 
   return (
     <div className="border-b-[1px] border-neutral-800 px-5 py-2">
