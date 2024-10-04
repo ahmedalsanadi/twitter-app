@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-//@ts-expect-errorignore
+
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 
