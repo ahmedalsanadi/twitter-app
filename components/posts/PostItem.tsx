@@ -8,11 +8,17 @@ import { AiOutlineHeart, AiOutlineMessage, AiFillHeart } from 'react-icons/ai';
 import useLike from '../../hooks/useLike';
 import React from 'react';
 
-// Define Post and User types based on the data you are dealing with
 interface User {
 	id: string;
 	name: string;
 	username: string;
+}
+
+interface Comment {
+	id: string;
+	body: string;
+	createdAt: string;
+	user: User;
 }
 
 interface Post {
@@ -20,8 +26,8 @@ interface Post {
 	body: string;
 	createdAt: string;
 	user: User;
-	comments?: Array<any>;
-	likedIds?: Array<any>;
+	comments?: Comment[]; // specify that comments is an array of Comment objects
+	likedIds?: string[]; // specify that likedIds is an array of strings
 }
 
 interface PostItemProps {

@@ -7,16 +7,24 @@ import { BsTwitter } from 'react-icons/bs';
 // Hooks
 import useCurrentUser from '../hooks/useCurrentUser';
 import useNotifications from '../hooks/useNotifications';
+type Notification = {
+	id: string;
+	body: string;
+	userId: string;
+	createdAt: string;
+};
 
 const NotificationsFeed = () => {
 	
+	// get the current user from the session
 	const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
-	// console.log(` this is the current  user: `, currentUser); // client log for testing
-	
+
+	// fetch the notifications for the current user
 	const { data: fetchedNotifications = [] } = useNotifications(
 		currentUser?.id,
 	);
 
+	// if the user is not logged in, fetchedNotifications will be an empty array.
 	useEffect(() => {
 		mutateCurrentUser();
 	}, [mutateCurrentUser]);
@@ -31,7 +39,7 @@ const NotificationsFeed = () => {
 	}
 	return (
 		<div className="flex flex-col">
-			{fetchedNotifications.map((notification: Record<string, any>) => (
+			{fetchedNotifications.map((notification: Notification) => (
 				<div
 					key={notification.id}
 					className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-neutral-800">

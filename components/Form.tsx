@@ -21,45 +21,39 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
 
 	const loginModal = useLoginModal();
 	const { data: currentUser } = useCurrentUser();
-
-
-	const { mutate: mutatePosts } = usePosts();	                // Fetch all posts
-	const { mutate: mutatePost } = usePost(postId as string);  // Fetch the specific post
+	
+	const { mutate: mutatePosts } = usePosts(); // Fetch all posts
+	const { mutate: mutatePost } = usePost(postId as string); // Fetch the specific post
 
 	const [body, setBody] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
-
 
 	const onSubmit = useCallback(async () => {
 		try {
 			setIsLoading(true);
 
-			// URL to post to
+			// URL for the comment or post to be created
 			const url = isComment
 				? `/api/comments?postId=${postId}`
 				: '/api/posts';
 
-			
 			const currentId = currentUser.id;
 
-			// Post the comment
-			await axios.post(url, { currentId, body });
+			// Post the ( post or comment )
+			await axios.post(url, { body, userId: currentId });
 			toast.success('Tweet created');
-			setBody('');  // Reset the comment body
+			setBody(''); // Reset the comment body
 
-			
 			mutatePosts(); // Refetch the post
 			mutatePost(); //refresh single post
 
-
 		} catch (error) {
-			console.log(error);
+			console.log(' hahaha', error);
 			toast.error(`Something went wrong`);
 		} finally {
 			setIsLoading(false);
 		}
 	}, [body, mutatePost, mutatePosts, isComment, postId, currentUser?.id]);
-
 
 	return (
 		<div className="border-b-[1px] border-neutral-800 px-5 py-2">
@@ -83,7 +77,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
 						{/* Button to submit the comment */}
 						<div className="mt-4 flex flex-row justify-end">
 							<Button
-								disabled={isLoading || !body} 	// Disable the button if the form is loading or the body is empty
+								disabled={isLoading || !body} // Disable the button if the form is loading or the body is empty
 								onClick={onSubmit}
 								label="Tweet"
 							/>
