@@ -33,7 +33,7 @@ const useFollow = (userId: string) => {
 
       toast.success("Success");
     } catch (error) {
-      toast.error("Something went wrong", error);
+      toast.error("Something went wrong");
     }
   }, [
     currentUser,
