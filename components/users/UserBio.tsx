@@ -7,6 +7,7 @@ import { BiCalendar } from 'react-icons/bi';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useUser from '@/hooks/useUser';
 import useEditModal from '@/hooks/useEditModal';
+import useFollow from '@/hooks/useFollow';
 
 import Button from '../Button';
 
@@ -20,6 +21,7 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
 
 	const editModal = useEditModal();
 
+	const { isFollowing, toggleFollow } = useFollow(userId);
 
 	const createdAt = useMemo(() => {
 		if (!fetchedUser?.createdAt) {
@@ -36,7 +38,12 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
 				{currentUser?.id === userId ? (
 					<Button secondary label="Edit" onClick={editModal.onOpen} />
 				) : (
-					<Button onClick={() => {}} label="Follow" secondary />
+					<Button
+						onClick={toggleFollow}
+						label={isFollowing ? 'Unfollow' : 'Follow'}
+						secondary={!isFollowing}
+						outline={isFollowing}
+					/>
 				)}
 			</div>
 
@@ -60,17 +67,21 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
 					</div>
 				</div>
 
-                {/* User followers and following */}
-                <div className="flex flex-row items-center mt-4 gap-6">
-                    <div className="flex flex-row items-center gap-1">
-                        <p className="text-white">{fetchedUser?.followingIds?.length}</p>
-                        <p className="text-neutral-500">Following</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-1">
-                        <p className="text-white">{fetchedUser?.followersCount || 0}</p>
-                        <p className="text-neutral-500">Followers</p>
-                    </div>
-                </div>
+				{/* User followers and following */}
+				<div className="flex flex-row items-center mt-4 gap-6">
+					<div className="flex flex-row items-center gap-1">
+						<p className="text-white">
+							{fetchedUser?.followingIds?.length}
+						</p>
+						<p className="text-neutral-500">Following</p>
+					</div>
+					<div className="flex flex-row items-center gap-1">
+						<p className="text-white">
+							{fetchedUser?.followersCount || 0}
+						</p>
+						<p className="text-neutral-500">Followers</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
