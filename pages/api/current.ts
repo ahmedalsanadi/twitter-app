@@ -8,6 +8,10 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
     }
     try{
         const { currentUser } = await serverAuth(req);
+        
+        // console.log(`This is the current user:`, currentUser); // client log for testing
+
+        // Send the current user object as a response
         return res.status(200).json(currentUser);
 
     }catch(error){  

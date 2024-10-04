@@ -9,7 +9,10 @@ import useCurrentUser from '../hooks/useCurrentUser';
 import useNotifications from '../hooks/useNotifications';
 
 const NotificationsFeed = () => {
+	
 	const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
+	// console.log(` this is the current  user: `, currentUser); // client log for testing
+	
 	const { data: fetchedNotifications = [] } = useNotifications(
 		currentUser?.id,
 	);
@@ -18,6 +21,7 @@ const NotificationsFeed = () => {
 		mutateCurrentUser();
 	}, [mutateCurrentUser]);
 
+	//if the data array (fetchedNotifications) is empty, return a message "No notifications"
 	if (fetchedNotifications.length === 0) {
 		return (
 			<div className="text-neutral-600 text-center p-6 text-xl">
