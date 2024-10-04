@@ -54,9 +54,9 @@ const CommentItem: React.FC<CommentItemProps> = ({ data }) => {
 
 	return (
 		<div className="border-b-[1px] border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition">
-			<div className="flex flex-row items-start gap-3">
+			<div className="flex flex-row items-start gap-3 flex-2">
 				<Avatar userId={data.user.id} />
-				<div>
+				<div className="flex flex-col flex-1">
 					<div className="flex flex-row items-center gap-2">
 						<p
 							onClick={goToUser}
