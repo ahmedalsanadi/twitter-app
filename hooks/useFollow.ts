@@ -1,5 +1,3 @@
-import useSWR from "swr";
-import fetcher from "../libs/fetcher";
 import useCurrentUser from "./useCurrentUser";
 import useUser from "./useUser";
 import useLoginModal from "./useLoginModal";
