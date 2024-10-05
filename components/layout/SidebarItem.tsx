@@ -1,16 +1,8 @@
-// React
-import { useCallback } from 'react';
-import { useRouter } from 'next/router';
-
-// React Icons
-import { BsDot } from 'react-icons/bs';
-
-// Types
 import { IconType } from 'react-icons';
-
-// Hooks
-import useCurrentUser from '@/hooks/useCurrentUser';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 import useLoginModal from '@/hooks/useLoginModal';
+import useCurrentUser from '@/hooks/useCurrentUser';
 
 interface SidebarItemProps {
 	label: string;
@@ -42,27 +34,31 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			router.push(href);
 		}
 	}, [router, onClick, href, currentUser, auth, loginModal]);
+
 	return (
-		<div onClick={handleClick} className="flex flex-row items-center">
-			<div className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden">
+		<div
+			className="flex flex-col items-center cursor-pointer"
+			onClick={handleClick}>
+		
+			{/* small screens */}
+			
+			<div className="relative rounded-full h-14 w-14 flex items-center justify-center p-2 hover:bg-slate-300 hover:bg-opacity-10  cursor-pointer lg:hidden transition">
 				<Icon size={28} color="white" />
 				{alert ? (
-					<BsDot
-						className="text-sky-500 absolute -top-4 left-0"
-						size={70}
-					/>
+					<span className="absolute -top-4 left-0 right-0 mx-auto w-5 h-5 bg-sky-500 border-4 border-black rounded-full" />
 				) : null}
 			</div>
-			<div className="relative hidden lg:flex items-center gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer">
+
+			{/* large screens */}
+			<div className="relative hidden lg:flex gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer items-center">
 				<Icon size={24} color="white" />
 				<p className="hidden lg:block text-white text-xl">{label}</p>
 				{alert ? (
-					<BsDot
-						className="text-sky-500 absolute -top-4 left-0"
-						size={70}
-					/>
+					<span className="absolute left-0 top-0 h-3 w-3 bg-sky-500 rounded-full" />
 				) : null}
 			</div>
+
+		
 		</div>
 	);
 };

@@ -10,7 +10,7 @@ import EditModal from '@/components/modals/EditModal';
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<SessionProvider session={pageProps.session}>
-			<Toaster />
+			<Toaster /> {/* Toaster component for displaying notifications */}
 			<RegisterModal />
 			<LoginModal />
 			<EditModal />
