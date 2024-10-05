@@ -110,7 +110,9 @@ To deploy this application on a platform like **Vercel**, follow these steps:
 ## Screenshots
 
 Here are some screenshots of the application:
+---
 ![Homepage](https://github.com/user-attachments/assets/3c503010-a5ea-4f82-af0f-5ffe9ba15e6e)
+![image](https://github.com/user-attachments/assets/f218d528-fff2-457c-a461-dfe433dca8c9)
 ![image](https://github.com/user-attachments/assets/4964ae58-97ff-4828-a012-b468ffdf9b13)
 
 ---
@@ -120,6 +122,7 @@ Here are some screenshots of the application:
 ---
 
 ![image](https://github.com/user-attachments/assets/558ab31b-fe08-497d-a3f6-6c42dd629f52)
+
 ## Additional Information
 
 ### Tech Stack Details:
@@ -159,7 +162,7 @@ For any inquiries or feedback, feel free to contact me at:
 - **GitHub**: [Ahmed Al-sanadi](https://github.com/ahmedalsanadi)
 
 
-![image](https://github.com/user-attachments/assets/f218d528-fff2-457c-a461-dfe433dca8c9)
+
 
 
 
