@@ -1,4 +1,4 @@
-# Twitter Clone App
+# 🔥 Twitter Clone App
 This is a full-featured Twitter clone app built with modern web development tools and technologies. It mimics the core features of Twitter, including user authentication, posting tweets, notifications, profiles, and more.
 
 ---
